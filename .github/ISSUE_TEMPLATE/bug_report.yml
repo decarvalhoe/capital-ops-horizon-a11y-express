@@ -1,0 +1,33 @@
+name: Bug report
+description: Something is wrong (crash, false positive, missed defect)
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Do not send private data.** Issues are public: no non-public URLs, personal data, cookies, tokens or screenshots with user information. Rebuild the case with fictional content (for example a small HTML snippet or the synthetic test page).
+  - type: input
+    id: browser
+    attributes:
+      label: "Browser and version"
+      placeholder: "e.g. Firefox 130, Chrome 129"
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Synthetic reproduction
+      description: A minimal fictional HTML snippet, or "synthetic test page".
+      placeholder: "<html><body><input id=\"x\"></body></html>"
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected vs observed"
+    validations: { required: true }
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: This report contains no private data (synthetic example only)
+          required: true

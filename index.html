@@ -1,17 +1,24 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>A11y Express — vérifications rapides WCAG 2.2 en un clic</title>
-<meta name="description" content="Bookmarklet gratuit : lang, alt, titres, noms accessibles, étiquettes, identifiants dupliqués, cibles 24 px, lien d'évitement. Aucune donnée envoyée.">
-<style>body{max-width:760px;margin:0 auto;padding:24px 16px;font:16px/1.55 system-ui,sans-serif;color:#1d2433}h1{font-size:1.8rem}.btn{display:inline-block;background:#0b6e4f;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600}code{background:#f2f0ea;padding:2px 4px}main{display:block}</style></head>
-<body><a href="#main" style="position:absolute;left:-999px">Aller au contenu</a><main id="main">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A11y Express — one-click WCAG 2.2 quick checks (bookmarklet)</title>
+<meta name="description" content="Free bookmarklet: lang, alt, headings, accessible names, labels, duplicate ids, 24 px targets, skip link. Runs in your browser, no data is sent. MIT.">
+<link rel="alternate" hreflang="fr" href="fr.html"><link rel="alternate" hreflang="en" href="./">
+<style>body{max-width:760px;margin:0 auto;padding:24px 16px;font:16px/1.55 system-ui,sans-serif;color:#1d2433}h1{font-size:1.8rem}.btn{display:inline-block;background:#0b6e4f;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600}code{background:#f2f0ea;padding:2px 4px}main{display:block}.warn{border-left:4px solid #b8860b;padding:8px 12px;background:#fff8e6}</style></head>
+<body><a href="#main" style="position:absolute;left:-999px">Skip to content</a><main id="main">
+<p><a href="fr.html" lang="fr" hreflang="fr">Version française</a></p>
 <h1>A11y Express</h1>
-<p>Un bookmarklet gratuit qui vérifie en un clic, dans la page ouverte, huit points de WCAG 2.2 : attribut <code>lang</code>, images sans <code>alt</code>, présence d'un <code>h1</code> et sauts de niveaux, liens et boutons sans nom accessible, champs sans étiquette, identifiants dupliqués, cibles interactives de moins de 24 × 24 px (critère 2.5.8), lien d'évitement ou région <code>main</code>.</p>
-<p><strong>Aucune donnée n'est envoyée</strong> : tout s'exécute dans votre navigateur. Le résultat s'affiche dans un panneau et peut être copié en JSON pour vos tickets.</p>
-<h2>Installer</h2>
-<p>Glissez ce bouton dans votre barre de favoris, puis cliquez dessus sur n'importe quelle page :</p>
+<p>A free bookmarklet that checks eight WCAG 2.2 points in the page you have open, in one click: the <code>lang</code> attribute, images without <code>alt</code>, presence of an <code>h1</code> and skipped heading levels, links and buttons without an accessible name, form fields without a label, duplicate ids, interactive targets smaller than 24 × 24 px (success criterion 2.5.8), and a skip link or <code>main</code> landmark.</p>
+<p><strong>No data is sent</strong>: everything runs in your browser. Findings appear in a panel and can be copied as JSON for your tickets.</p>
+<h2>Install</h2>
+<p>Drag this button to your bookmarks bar, then click it on any page:</p>
 <p><a class="btn" id="bm" href="#">A11y Express</a></p>
-<p>Ou copiez le code du bookmarklet : <a href="bookmarklet.txt">bookmarklet.txt</a> · code source lisible : <a href="bookmarklet.js">bookmarklet.js</a> · <a href="https://github.com/decarvalhoe/capital-ops-horizon-a11y-express">dépôt GitHub</a> (MIT).</p>
-<h2>Limites</h2>
-<ul><li>Vérifications automatiques partielles : elles ne remplacent pas un audit WCAG complet (contraste, clavier, lecteurs d'écran, contenu dynamique).</li><li>Le critère 2.5.8 admet des exceptions (cibles en ligne, espacement) : vérifiez manuellement.</li><li>Références : <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2, W3C, 12 décembre 2024</a>.</li></ul>
-<p><small>Horizon — projet personnel. Licence MIT. Sans cookies, sans traceurs.</small></p></main>
+<p>Or copy the bookmarklet code: <a href="bookmarklet.txt">bookmarklet.txt</a> · readable source: <a href="bookmarklet.js">bookmarklet.js</a> · <a href="https://github.com/decarvalhoe/capital-ops-horizon-a11y-express">GitHub repository</a> (MIT).</p>
+<h2>Try it on a synthetic page</h2>
+<p>Open the <a href="examples/synthetic-page.html">synthetic test page</a> (fictional content with deliberate defects), then click the bookmarklet. You should see nine findings, listed on that page. No real site needed.</p>
+<h2>Feedback and support</h2>
+<p>Feedback is voluntary and goes through GitHub: <a href="https://github.com/decarvalhoe/capital-ops-horizon-a11y-express/issues/new/choose">open an issue</a> (bug report or feedback form). See <a href="https://github.com/decarvalhoe/capital-ops-horizon-a11y-express/blob/main/SUPPORT.md">SUPPORT.md</a> for what to include and what to expect (best effort, no guaranteed response time).</p>
+<p class="warn"><strong>Do not send private data.</strong> Issues are public. Never paste a real page's URL if it is not public, user data, cookies, tokens or screenshots containing personal information. Reproduce with a synthetic example instead, like the test page above.</p>
+<h2>Limits</h2>
+<ul><li>Partial automated checks: they do not replace a full WCAG audit (contrast, keyboard, screen readers, dynamic content).</li><li>Criterion 2.5.8 has exceptions (inline targets, spacing): verify manually.</li><li>Reference: <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2, W3C, 12 December 2024</a>.</li></ul>
+<p><small>Horizon — personal project. MIT licence. No cookies, no trackers.</small></p></main>
 <script>fetch('bookmarklet.txt').then(r=>r.text()).then(t=>{document.getElementById('bm').setAttribute('href',t.trim())});</script>
 </body></html>

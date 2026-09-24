@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Synthetic test page (try the bookmarklet without a real site)
+    url: https://decarvalhoe.github.io/capital-ops-horizon-a11y-express/examples/synthetic-page.html
+    about: Fictional content with deliberate defects. Use it to reproduce issues without private data.
