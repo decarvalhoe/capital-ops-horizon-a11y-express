@@ -7,4 +7,6 @@ identifiants dupliqués, cibles < 24×24 px (WCAG 2.2 · 2.5.8), lien d'éviteme
 
 Limites : vérifications automatiques partielles, pas un audit WCAG complet. Référence : [WCAG 2.2 (W3C, 12.12.2024)](https://www.w3.org/TR/WCAG22/).
 
-Tests : `node --test test.mjs`. Test public gratuit de la ligue de paris Horizon (24.09.2026) : mesure = trafic GitHub uniquement, aucun traceur.
+Tests : `node --test test.mjs` (dont identifiants contenant guillemets, crochets, barres obliques inverses).
+
+Correctif 2026-09-24 (revue opérateur) : association étiquette ↔ champ par la propriété DOM `labels` ou comparaison stricte de `for`, sans construction de sélecteur CSS ; un identifiant contenant un guillemet ne provoque plus d'erreur. Test public gratuit de la ligue de paris Horizon (24.09.2026) : mesure = trafic GitHub uniquement, aucun traceur.

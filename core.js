@@ -13,7 +13,10 @@ export function runChecks(doc, win) {
   const empty = [...doc.querySelectorAll('a,button')].filter((e) => !(e.textContent || '').trim() && !e.getAttribute('aria-label') && !e.getAttribute('aria-labelledby') && !e.getAttribute('title') && !e.querySelector('img[alt]'));
   if (empty.length) add('empty-ctrl', '2.4.4 / 4.1.2', 'A', 'Liens ou boutons sans nom accessible', empty.length);
   const ctrls = [...doc.querySelectorAll('input:not([type=hidden]):not([type=submit]):not([type=button]),select,textarea')];
-  const unlabeled = ctrls.filter((c) => { const id = c.getAttribute('id'); return !(id && doc.querySelector(`label[for="${id}"]`)) && !c.closest('label') && !c.getAttribute('aria-label') && !c.getAttribute('aria-labelledby'); });
+  // Association label ↔ champ sans concaténation CSS : propriété DOM `labels` si disponible, sinon comparaison stricte de l'attribut for.
+  const labelsFor = [...doc.querySelectorAll('label[for]')];
+  const hasLabel = (c) => { if (c.labels && c.labels.length) return true; const id = c.getAttribute('id'); return !!id && labelsFor.some((l) => l.getAttribute('for') === id); };
+  const unlabeled = ctrls.filter((c) => !hasLabel(c) && !c.closest('label') && !c.getAttribute('aria-label') && !c.getAttribute('aria-labelledby'));
   if (unlabeled.length) add('label', '1.3.1 / 3.3.2', 'A', 'Champs de formulaire sans étiquette', unlabeled.length);
   const ids = {}; let dup = 0; doc.querySelectorAll('[id]').forEach((e) => { const k = e.getAttribute('id'); if (ids[k]) dup++; ids[k] = 1; });
   if (dup) add('dup-id', '4.1.1', 'A', 'Identifiants dupliqués', dup);
