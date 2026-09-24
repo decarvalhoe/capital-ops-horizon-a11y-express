@@ -1,0 +1,17 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A11y Express — vérifications rapides WCAG 2.2 en un clic</title>
+<meta name="description" content="Bookmarklet gratuit : lang, alt, titres, noms accessibles, étiquettes, identifiants dupliqués, cibles 24 px, lien d'évitement. Aucune donnée envoyée.">
+<style>body{max-width:760px;margin:0 auto;padding:24px 16px;font:16px/1.55 system-ui,sans-serif;color:#1d2433}h1{font-size:1.8rem}.btn{display:inline-block;background:#0b6e4f;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600}code{background:#f2f0ea;padding:2px 4px}main{display:block}</style></head>
+<body><a href="#main" style="position:absolute;left:-999px">Aller au contenu</a><main id="main">
+<h1>A11y Express</h1>
+<p>Un bookmarklet gratuit qui vérifie en un clic, dans la page ouverte, huit points de WCAG 2.2 : attribut <code>lang</code>, images sans <code>alt</code>, présence d'un <code>h1</code> et sauts de niveaux, liens et boutons sans nom accessible, champs sans étiquette, identifiants dupliqués, cibles interactives de moins de 24 × 24 px (critère 2.5.8), lien d'évitement ou région <code>main</code>.</p>
+<p><strong>Aucune donnée n'est envoyée</strong> : tout s'exécute dans votre navigateur. Le résultat s'affiche dans un panneau et peut être copié en JSON pour vos tickets.</p>
+<h2>Installer</h2>
+<p>Glissez ce bouton dans votre barre de favoris, puis cliquez dessus sur n'importe quelle page :</p>
+<p><a class="btn" id="bm" href="#">A11y Express</a></p>
+<p>Ou copiez le code du bookmarklet : <a href="bookmarklet.txt">bookmarklet.txt</a> · code source lisible : <a href="bookmarklet.js">bookmarklet.js</a> · <a href="https://github.com/decarvalhoe/capital-ops-horizon-a11y-express">dépôt GitHub</a> (MIT).</p>
+<h2>Limites</h2>
+<ul><li>Vérifications automatiques partielles : elles ne remplacent pas un audit WCAG complet (contraste, clavier, lecteurs d'écran, contenu dynamique).</li><li>Le critère 2.5.8 admet des exceptions (cibles en ligne, espacement) : vérifiez manuellement.</li><li>Références : <a href="https://www.w3.org/TR/WCAG22/">WCAG 2.2, W3C, 12 décembre 2024</a>.</li></ul>
+<p><small>Horizon — projet personnel. Licence MIT. Sans cookies, sans traceurs.</small></p></main>
+<script>fetch('bookmarklet.txt').then(r=>r.text()).then(t=>{document.getElementById('bm').setAttribute('href',t.trim())});</script>
+</body></html>
